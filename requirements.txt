@@ -1,0 +1,5 @@
+# Core
+Django==1.6.6
+
+# Admin
+django-suit==0.2.9
