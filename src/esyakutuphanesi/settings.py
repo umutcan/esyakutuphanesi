@@ -45,6 +45,7 @@ DJANGO_APPS = (
 )
 
 PROJECT_APPS = (
+    'stuffs',
 )
 
 # Don't change this order!
