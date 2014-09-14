@@ -1,5 +1,6 @@
 # Core
-Django==1.6.6
+Django==1.7
 
 # Admin
 django-suit==0.2.9
+django-suit-redactor==0.0.2
