@@ -37,7 +37,8 @@ ADMIN_APPS = (
 )
 
 DJANGO_APPS = (
-    'django.contrib.auth',
+    #'django.contrib.auth',
+    'esyakutuphanesi.config.AuthConfig',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
