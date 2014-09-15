@@ -1,0 +1,64 @@
+[{
+    "fields": {
+        "image": "category_images/dogada-ve-sporda.png",
+        "name": "Do\u011fada ve Sporda"
+    },
+    "model": "stuffs.category",
+    "pk": 1
+}, {
+    "fields": {
+        "image": "category_images/elektronik.png",
+        "name": "Elektronik"
+    },
+    "model": "stuffs.category",
+    "pk": 2
+}, {
+    "fields": {
+        "image": "category_images/giysi-dolabi.png",
+        "name": "Giysi Dolab\u0131"
+    },
+    "model": "stuffs.category",
+    "pk": 3
+}, {
+    "fields": {
+        "image": "category_images/hirdavat.png",
+        "name": "H\u0131rdavat"
+    },
+    "model": "stuffs.category",
+    "pk": 4
+}, {
+    "fields": {
+        "image": "category_images/keyiflik.png",
+        "name": "Keyiflik"
+    },
+    "model": "stuffs.category",
+    "pk": 5
+}, {
+    "fields": {
+        "image": "category_images/kutuphane.png",
+        "name": "K\u00fct\u00fcphane"
+    },
+    "model": "stuffs.category",
+    "pk": 6
+}, {
+    "fields": {
+        "image": "category_images/mobilya.png",
+        "name": "Mobilya"
+    },
+    "model": "stuffs.category",
+    "pk": 7
+}, {
+    "fields": {
+        "image": "category_images/mutfak.png",
+        "name": "Mutfak"
+    },
+    "model": "stuffs.category",
+    "pk": 8
+}, {
+    "fields": {
+        "image": "category_images/bebek-ve-cocuk.png",
+        "name": "Bebek ve \u00c7ocuk"
+    },
+    "model": "stuffs.category",
+    "pk": 9
+}]
