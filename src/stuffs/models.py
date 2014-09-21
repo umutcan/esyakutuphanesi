@@ -28,3 +28,8 @@ class Stuff(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+class StuffPhoto(models.Model):
+    image = models.ImageField("Eşya Fotoğrafı", upload_to="stuff_photos")
+    stuff = models.ForeignKey(Stuff, related_name='photos')

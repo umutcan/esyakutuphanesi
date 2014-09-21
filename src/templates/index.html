@@ -1,0 +1,68 @@
+{% extends "_layouts/base.html" %}
+
+{% block content %}
+<div class="row">
+    <img class="img-responsive" src="{{ STATIC_URL }}img/esyakutuphanesi_nedir.png">
+</div>
+
+{% include "_layouts/search/index-search.html" %}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <h3>Kütüphaneye Eklenenler</h3>
+        <hr>
+    </div>
+
+    <div class="col-md-12 col-sm-12">
+        <div id="container" class="row fluid">
+            {% for stuff in object_list %}
+                {% include "_layouts/item_summary/given_item.html" %}
+            {% empty %}
+                <h4>Henüz eşya paylaşılmadı.</h4>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<hr>
+
+{% comment %}
+{# Stuff type is not implemanted yet #}
+    <div class="row" style="margin-left:-16px;">
+    <div class="col-md-12 col-sm-12">
+        <h3>Aranıyor!</h3>
+        <hr>
+    </div>
+    <div class="col-md-12 col-sm-12">
+        <div id="container1" class="row fluid">
+            {% for stuff in object_list %}
+                {% include "_layouts/item_summary/wanted_item.html" %}
+            {% empty %}
+                <h4>Henüz aranan eşya yok.</h4>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endcomment %}
+<hr>
+
+<div class="row">
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <a href="/kurulus">
+            <img src="{{ STATIC_URL }}img/kurulus.png" class="img-responsive">
+        </a>
+    </div>
+
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <a href="/girisim_yolu">
+            <img src="{{ STATIC_URL }}img/girisimyolu.png" class="img-responsive">
+        </a>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12">
+        <a href="/ekip_ve_gonulluluk">
+            <img src="{{ STATIC_URL }}img/ekip.png" class="img-responsive">
+        </a>
+    </div>
+</div>
+{% endblock %}

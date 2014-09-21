@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}css/custom.css" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js" ></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    {# <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.raty.min.js" ></script> #}
+    {# Page stats code comes here #}
+    <title>{% block title %}Eşya Kütüphanesi{% endblock %}</title>
+</head>
+
+<body>
+    <div id="header">
+        {% include '_layouts/header.html' %}
+    </div>
+
+    <div class="contanier">
+        <div class="col-md-12 col-sm-12" style=" overflow:hidden;">
+            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+    {% include "_layouts/footer.html" %}
+</body>
+</html>
