@@ -1,0 +1,15 @@
+#prev_img {
+    background:url(/static/images/dugme_left.png) no-repeat;
+    cursor:pointer;
+    width: 35px;
+    height: 35px;
+    border: none;
+}
+
+#next_img {
+    background:url(/static/images/dugme_right.png) no-repeat;
+    cursor:pointer;
+    width: 35px;
+    height: 35px;
+    border: none;
+}
