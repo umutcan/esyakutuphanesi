@@ -1191,15 +1191,15 @@ def game_data():
     data = {
         "user_id": 11,
         "mastery": {
+            "all": {
+                "level": 4,
+                "remaining": 2,
+                "total": 3
+            },
             "books": {
                 "level": 3,
                 "remaining": 1,
                 "total": 5
-            },
-            "outdoor": {
-                "level": 2,
-                "remaining": 2,
-                "total": 3
             }
         }
     }

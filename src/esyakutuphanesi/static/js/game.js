@@ -58,16 +58,26 @@ function checkProgress(mastery){
         $.getJSON( "/game_data", function( data ) {
             imgs = [];
             console.log(data["mastery"]);
-
+            var counter = 0;
+            var mastered = 0;
             $.each(data["mastery"], function(key, val){
-                if(mastery == key)
-                    var path = "/static/images/" + key + "_" + (val["level"] + 1) + ".jpg";
+
+                if(mastery == key){
+                    var path = "/static/images/" + key + "_" + (val["level"] + 1) + ".png";
+                    mastered = counter;
+                }
                 else
-                    var path = "/static/images/" + key + "_" + val["level"] + ".jpg";
+                    var path = "/static/images/" + key + "_" + val["level"] + ".png";
                 imgs.push(path)
+                counter++;
             });
+            console.log("mastered:" + mastered);
             clearLayer('layer1');
-            addImage('layer1', imgs[0], 0, 0, 300, 500);
+            addImage('layer1', imgs[mastered], 0, 0, 300, 300);
+            i = mastered;
+            $( "#quest").html("Tebrikler! Kitap Kurdu Seviye 4 oldun. Seviye 5 için 5 kitap daha listele ya da iki buluşma daha gerçekleştir. ");
+            $( "#quest" ).show( "slow");
+            $( "#quest-close" ).show( "slow");
             console.log(imgs);
         });
     });
@@ -77,7 +87,7 @@ function addLayer(id, zindex){
     $(function(){
         var canvasStr = "<canvas id=\"" +id +"\" " +
             "width=\"300px\" height=\"300px\" " +
-            "style=\"z-index:" + zindex + "; position:absolute; left:0px; top:0px;\" " +
+            "style=\"z-index:" + zindex + "; position:absolute; left:15px; top:0px;\" " +
             "></canvas>";
         $("#main").append(canvasStr);
         layers[id] = $("#" + id);
@@ -104,7 +114,7 @@ function gozuAcik(clear){
    clear= typeof clear !== 'undefined' ? clear : false;
   if(clear)
     clearLayer('layer2');
-  addImage('layer2', '/static/images/gozu_acik.png',100, 200, 100, 100);
+  addImage('layer2', '/static/images/kitap_kurdu_gozu_acik.png',110, 130, 91, 167);
     //clearInterval(interval);
     timeout = setTimeout(function () {gozuKapali(true);}, 3000);
 }
@@ -113,7 +123,7 @@ function gozuKapali(clear){
     clear= typeof clear !== 'undefined' ? clear : false;
     if(clear)
         clearLayer('layer2');
-    addImage('layer2', '/static/images/gozu_kapali.png',100, 200, 100, 100);
+    addImage('layer2', '/static/images/kitap_kurdu_gozu_kapali.png',110, 130, 91, 167);
     //clearInterval(interval);
     timeout = setTimeout(function () {gozuAcik(true);}, 100);
 }
@@ -127,6 +137,7 @@ $(function(){
     gozuAcik();
 
     $("#quest").hide();
+    $("#quest-close").hide();
     $( "#toggleit" ).click(function() {
         $( "#quest" ).toggle( "slow", function() {
             // Animation complete.
@@ -135,6 +146,7 @@ $(function(){
     $( "#next_img" ).click(function() {
         // swapImage(1);
         //hideQuestInfo();
+        $( "#quest" ).hide('slow');
         changeIndex(1);
         var  canvas = layers['layer1'][0];
         clearCanvas(canvas);
@@ -143,10 +155,16 @@ $(function(){
     $( "#prev_img" ).click(function() {
         // swapImage(-1);
         //hideQuestInfo();
+        $( "#quest" ).hide('slow');
         changeIndex(-1);
         var  canvas = layers['layer1'][0];
         clearCanvas(canvas);
         addImage('layer1', imgs[i], 0, 0, 300, 300);
+    });
+
+    $( "#quest-close" ).click(function() {
+        $( "#quest" ).hide('slow');
+        $( "#quest-close" ).hide('slow');
     });
 
     $( "#test-but" ).click(function() {
@@ -158,7 +176,7 @@ $(function(){
         console.log(data["mastery"]);
 
         $.each(data["mastery"], function(key, val){
-            var path = "/static/images/" + key + "_" + val["level"] + ".jpg";
+            var path = "/static/images/" + key + "_" + val["level"] + ".png";
             imgs.push(path)
         });
         addImage('layer1', imgs[0], 0, 0, 300, 300);
