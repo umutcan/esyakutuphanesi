@@ -1184,3 +1184,27 @@ def stats_view():
         stuff_count=stuff_count,
         user_with_stuff_count=user_with_stuff_count
     )
+
+
+@app.route('/game_data')
+def game_data():
+    data = {
+        "user_id": 11,
+        "mastery": {
+            "books": {
+                "level": 3,
+                "remaining": 1,
+                "total": 5
+            },
+            "outdoor": {
+                "level": 2,
+                "remaining": 2,
+                "total": 3
+            }
+        }
+    }
+    return jsonify(data)
+
+@app.route('/game')
+def game():
+    return render_template('game.html')
